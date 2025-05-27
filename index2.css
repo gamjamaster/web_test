@@ -1,0 +1,672 @@
+﻿/* General Styles */
+
+body {
+    font-family: "Noto Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+}
+
+
+/* Navigation Menu */
+.nav-logo {
+    position: absolute;
+    left: 0;
+    font-size: 20px;
+    float: left;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    top: 0;
+    gap: 0;
+    margin: 0;
+}
+
+    .nav-logo img {
+        position: absolute;
+        top: 0;
+        width: 160px;
+        height: 80px;
+    }
+
+.nav-menu {
+    border-radius: 20px;
+    border: none;
+    color: white;
+    text-align: right;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 17px;
+    padding: 15px 10px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+nav {
+    padding: 10px;
+    background-color: #000000;
+}
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: block;
+    }
+
+        nav ul li {
+            float: right;
+        }
+
+            nav ul li a {
+                color: white;
+                text-align: center;
+                padding: 12px 25px;
+                text-decoration: none;
+            }
+
+            nav ul li:nth-child(2) a:hover {
+                color: #0762fe;
+                background-color: black;
+                border: 1px solid #0762fe;
+            }
+
+            nav ul li:nth-child(2) a {
+                color: #ffffff;
+                background-color: #0762fe;
+                border: 1px solid #000000;
+            }
+/* Sidebar styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* hidden by default */
+    width: 250px;
+    height: 100%;
+    background-color: #171717;
+    padding-top: 60px;
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+    .sidebar a {
+        display: block;
+        color: white;
+        padding: 16px;
+        text-decoration: none;
+    }
+
+/* Toggle Button */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    margin: 10px;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Responsive: show toggle on small screens */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+    }
+
+    nav ul li {
+        display: none;
+    }
+
+    nav {
+        padding: 0;
+    }
+
+        nav ul li a img {
+            display: none;
+        }
+}
+
+/* Container Styling  */
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    flex: 1;
+}
+
+/* Column Styling */
+.column {
+    padding: 20px;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+    .column:hover {
+        box-shadow: 0 12px 16px rgba(0, 0, 0, 0.1);
+    }
+
+/*Styled Button*/
+.btn {
+    background-color: #0762fe;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/*Hero Display Styling*/
+
+main {
+    padding: 320px 20px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80") no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+    main h1 {
+        margin: 0;
+        margin-inline: 12vw;
+        font-size: 75px;
+    }
+
+    main p {
+        display: block;
+        margin-top: 40px;
+        margin-inline: 10vw;
+        max-width: 600px;
+        font-size: 1.5em;
+    }
+
+    main ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+    }
+
+        main ul li {
+            padding: 10px;
+            font-size: 20px;
+        }
+
+    main div {
+        display: flex;
+        gap: 25px;
+    }
+
+        main div button span {
+            margin-left: 9px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        main div .btn {
+            width: 200px;
+            border-radius: 400px;
+            background-color: #0762fe;
+            font-size: 16px;
+            font-weight: 545;
+            box-shadow: 0 4px 9px rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main div .btnright {
+            background-color: rgba(0, 0, 0, 0);
+            border: #ffffff solid 2px
+        }
+
+/*Quotes Card Styling*/
+
+.quote-card {
+    margin-top: 150px;
+    padding-bottom: 100px;
+    text-align: center;
+    flex-direction:row;
+}
+
+    .quote-card section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+        .quote-card section section {
+            background-color: white;
+            padding: 90px;
+            width: 500px;
+            height: auto;
+        }
+
+            .quote-card section section h3 {
+                text-align: right;
+                margin-top: 50px;
+            }
+
+            .quote-card section section q {
+                text-align: center;
+                font-style: italic;
+                font-size: 20px;
+                margin: 0;
+            }
+
+
+/*Our Services Card Styling*/
+
+.service-card {
+    margin:0;
+    margin-top: 150px;
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+    .service-card img {
+        width: 60px;
+    }
+
+    .service-card h2 {
+        font-size: 55px;
+    }
+
+    .service-card section {
+        margin:10px;
+        display: flex;
+        justify-content: center;
+        flex-wrap:wrap;
+        gap:20px;
+    }
+
+        .service-card section section {
+            background-color: white;
+            width: 240px;
+            height: auto;
+            padding: 20px;
+            flex-direction: column;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+        }
+
+            .service-card section section h2 {
+                font-size: 35px;
+                margin: 0;
+                color: #2A9D8F;
+            }
+
+            .service-card section section p {
+                color: #000000c7;
+                font-size: 20px;
+            }
+
+/*Classes Card Styling*/
+
+.class-card {
+    display: flex;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+    .class-card section  {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width:70%;
+        margin: 20px;
+        flex: 1;
+    }
+
+    .class-card section .classimg {
+        height: 600px;
+        border-radius: 70px;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url("https://smarthealthclubs.com/wp-content/uploads/2024/09/Circuits.jpg") no-repeat center center;
+        overflow: hidden;
+        background-size: cover;
+    }
+
+    .class-card section section {
+        padding-bottom: 50px;
+    }
+
+    .class-card section section p {
+        max-width: 600px;
+        margin-inline: 40px;
+        padding-bottom: 40px;
+        font-size: 20px;
+        color:white;
+    }
+
+    .class-card h2 {
+        font-size: 50px;
+        color: #2A9D8F;
+    }
+
+
+    .class-card section section .main_btn {
+        background-color: rgba(0, 0, 0, 0);
+        border: #ffffff solid 2px;
+        color: #ffffff;
+        box-shadow: 0 12px 16px rgba(0, 0, 0, 0.1);
+    }
+
+        .class-card section section .main_btn:hover {
+            background-color: #0762fe;
+            color: white;
+            border: #0762fe solid 2px;
+            box-shadow: 0 12px 16px rgba(0, 0, 0, 0.4);
+        }
+
+
+/*Membership Card Styling*/
+
+.membership-card {
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+    flex-wrap: wrap;
+    
+    margin-top:100px;
+    margin-bottom:100px;
+}
+
+    .membership-card button {
+        background-color: #2A9D8F;
+        width: 30%;
+    }
+
+    .membership-card h2 {
+        text-align: center;
+        font-size: 55px;
+        color: white;
+    }
+
+    .membership-card h4 {
+        text-align: center;
+        font-size: 40px;
+        color: #ffffff;
+        margin-top: 0;
+    }
+
+    .membership-card h3 {
+        text-align: center;
+        font-size: 60px;
+        color: #2A9D8F;
+        margin: 0;
+    }
+
+    .membership-card p {
+        font-size: 20px;
+        color: rgb(255, 255, 255);
+        font-style: italic;
+    }
+
+    .membership-card section section {
+        border: 4px solid #00304a;
+        background-color: #002438;
+        width: 350px;
+        height: 299px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom:50px;
+    }
+
+        .membership-card section section:hover {
+            border: 4px solid #0762fe;
+        }
+
+
+    .membership-card section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction:row;
+        width:100%;
+    }
+
+    .membership-card div {
+        text-align: center;
+        padding: 50px;
+        border-radius: 60px;
+        background-color: #00435b;
+    }
+
+    .membership-card div .main_btn{
+        font-size:1rem;
+        padding:20px;
+    }
+
+
+.hero-display {
+    margin: 0;
+    background-color: red;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url("https://images.prestigeonline.com/wp-content/uploads/sites/8/2023/08/03173931/embody.png") no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    height: 540px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .hero-display h1 {
+        font-size: 4em;
+        color: white;
+    }
+
+    .hero-display p {
+        font-size: 1.4em;
+        color: white;
+    }
+
+/* Footer */
+footer {
+    margin: 0;
+    padding-top: 10px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    flex-wrap: wrap;
+}
+
+    footer .btn {
+        padding: 10px;
+        padding-inline: 20px;
+    }
+
+.footer-container {
+    margin: 0;
+    height: 100%;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+    .footer-container h1, footer ul, footer h2, footer h3, footer p {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    .footer-container h1 {
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 1.4rem;
+        color: #2A9D8F;
+    }
+
+    /*Description Card*/
+
+    .footer-container:nth-child(1) {
+        padding: 20px;
+        flex: 1;
+    }
+
+    /*Quick Links Card*/
+
+    .footer-container:nth-child(2) {
+        padding: 20px;
+        flex: 1;
+    }
+
+        .footer-container:nth-child(2) li {
+            margin-top: 10px;
+        }
+
+            .footer-container:nth-child(2) li a {
+                color: white;
+                text-decoration: none;
+            }
+
+    /*Contact Us Card*/
+
+    .footer-container:nth-child(3) {
+        flex: 1.4;
+        padding: 20px;
+    }
+
+        .footer-container:nth-child(3) li {
+            margin-bottom: 30px;
+        }
+
+        .footer-container:nth-child(3) ul p {
+            margin-inline: 10px;
+        }
+
+        .footer-container:nth-child(3) h2 {
+            font-size: 1.2rem;
+            text-decoration: underline;
+        }
+
+
+
+    /*Share Your Feedback*/
+    .footer-container:nth-child(4) {
+        flex: 2;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+        .footer-container:nth-child(4) ul {
+            display: flex;
+            flex-direction: column;
+        }
+    .footer-container:nth-child(4) ul li{
+        margin:0;
+        padding:0;
+        text-align:left;
+        width: 90%;
+    }
+
+        .footer-container:nth-child(4) ul input[type=text],
+        .footer-container:nth-child(4) ul input[type=email],
+        .footer-container:nth-child(4) ul .message_box_feedback{
+            margin-top:10px;
+            background-color:#333;
+            color:white;
+            text-align:left;
+
+        }
+
+            .footer-container:nth-child(4) ul .message_box_feedback {
+                resize:none;
+                margin-bottom:20px;
+            }
+
+
+    @media (max-width: 375px) {
+        .footer-container:nth-child(3) h1 {
+            position: relative;
+            left: 0px;
+        }
+    }
+
+
+
+    @media (max-width: 425px) {
+        .service-card h2 {
+            font-size: 2rem;
+        }
+
+        .service-card section .column {
+            width: 200px;
+            height: 270px;
+        }
+
+        .service-card section section h2 {
+            font-size: 2rem;
+        }
+
+        .service-card section section p {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .class-card section section p {
+            margin-inline: 0px;
+        }
+
+        .class-card section {
+            width: 300px;
+        }
+
+
+
+        .footer-container:nth-child(3) {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            right: 17px;
+            color: rgb(255, 255, 255);
+        }
+
+            .footer-container:nth-child(3) h1 {
+                position: relative;
+                right: 0px;
+            }
+
+        .footer-container:nth-child(1) {
+            margin-left: 20px;
+        }
+    }
+
+
+
+    @media (max-width: 768px) {
+        .footer-container:nth-child(3) {
+            flex: 1;
+            margin-right: 70px;
+            margin-left: 70px;
+        }
+    }
