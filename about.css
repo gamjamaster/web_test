@@ -1,0 +1,220 @@
+﻿.about_container {
+    background-color: #fafafa;
+}
+
+.about_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+}
+
+    .about_card img {
+        margin: 0;
+        width: 100px;
+        height: 100px;
+    }
+
+    .about_card h1 {
+        font-size: 2.2rem;
+        text-decoration: underline dodgerblue 5px;
+    }
+
+    .about_card p {
+        margin: 0;
+        text-align: center;
+        margin-inline: 100px;
+        font-size: 1.4rem;
+        color: rgba(0, 0, 0, 0.622);
+    }
+
+/*Who are we section*/
+
+.aboutv2_container {
+    margin-top: 150px;
+    row-gap: 200px;
+    column-gap: 0px;
+    background-color: rgb(9, 9, 9);
+    padding: 40px;
+}
+
+.aboutv2_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 740px;
+    height: 600px;
+    background-color: rgba(9, 9, 9, 0.798);
+}
+
+    .aboutv2_card p {
+        font-size: 1.15rem;
+        color: gray;
+        max-width: 600px;
+    }
+
+    .aboutv2_card h1 {
+        margin: 0;
+        font-size: 3rem;
+        color: white;
+    }
+
+    .aboutv2_card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50px;
+    }
+
+    .aboutv2_card span {
+        background-color: rgba(30, 143, 255, 0.431);
+        border: 2px solid dodgerblue;
+        color: white;
+        box-shadow: -0px 5px 4px rgba(0, 0, 0, 0.5);
+    }
+
+/* Our Mission and Values Section*/
+
+.aboutv3_container {
+    margin-top: 200px;
+    margin-bottom: 200px;
+    row-gap: 200px;
+    column-gap: 20px;
+    background-color: #fafafa;
+}
+
+.aboutv3_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 700px;
+    height: 620px;
+    background-color: #fafafa;
+    text-align: center;
+}
+
+    .aboutv3_card h3, .aboutv3_card h2 {
+        margin: 10px;
+        font-size: 2.4rem;
+    }
+
+    .aboutv3_card:first-child {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 60px;
+        background-color: rgba(30, 143, 255, 0.268);
+    }
+
+
+        .aboutv3_card:first-child p {
+            font-size: 1.54rem;
+            margin-inline: 70px;
+        }
+
+.value_container {
+    margin-top: 20px;
+    height: auto;
+    width: 92%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.value_box {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 12px 10px rgba(0, 0, 0, 0.1);
+    flex-grow: 2;
+    width: 192px;
+    min-height: 200px;
+    height: auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .value_box h1 {
+        margin: 10px;
+        font-size: 1.2rem;
+        color: dodgerblue;
+    }
+
+    .value_box p {
+        margin: 0;
+        text-align: justify;
+        font-size: 1rem;
+        margin-inline: 20px;
+    }
+
+/*The Founders Section*/
+
+.aboutv4_container {
+    margin-top: 50px;
+    column-gap: 60px;
+    row-gap: 200px;
+    background-color: #fafafa;
+    margin-bottom: 200px;
+}
+
+.aboutv4_card {
+    height: 625px;
+    width: 400px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 12px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+    .aboutv4_card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    .aboutv4_card img {
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+    }
+
+    .aboutv4_card h1 {
+        margin: 10px;
+        font-size: 2rem;
+        text-align: center;
+        text-decoration: underline #0762fe;
+    }
+
+    .aboutv4_card h2 {
+        text-align: center;
+        margin-inline: 60px;
+        color: dodgerblue;
+    }
+
+    .aboutv4_card p {
+        margin: 2px;
+        font-size: 1.1rem;
+        margin-inline: 40px;
+        text-align: justify;
+        color: rgba(0, 0, 0, 0.607);
+    }
+
+    .aboutv4_card button {
+        font-size: 1.1rem;
+        margin: 15px;
+        width: 70%;
+    }
