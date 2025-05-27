@@ -1,337 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Our Classes</title>
-    <style>
-        /* (기존 CSS 동일, 생략) */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #f9f9f9;
-            color: #333;
-        }
-
-        a {
-            text-decoration: none;
-            color: white;
-        }
-
-        h1, h2, p {
-            margin-bottom: 10px;
-        }
-
-        .hero_display {
-            background: url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1') no-repeat center center/cover;
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .hero_display h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-
-        .hero_display p {
-            font-size: 1.2rem;
-        }
-
-        .main_container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 40px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .main_box {
-            background-color: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .main_box:hover {
-            transform: translateY(-10px);
-        }
-
-        .main_box img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .class_card {
-            padding: 20px;
-        }
-
-        .class-card-animate h1 {
-            font-size: 1.2rem;
-            margin-top: 15px;
-        }
-
-        .class-card-animate div {
-            display: flex;
-            gap: 10px;
-            margin: 10px 0;
-        }
-
-        .main_btn {
-            display: inline-block;
-            background-color: #ff6347;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            margin-top: 15px;
-            cursor: pointer;
-        }
-
-        .main_btn:hover {
-            background-color: #e5533d;
-        }
-
-        .download-section {
-            text-align: center;
-            margin: 50px 0;
-        }
-
-        button.main_btn {
-            border: none;
-            cursor: pointer;
-        }
-
-        @media (max-width: 600px) {
-            .hero_display h1 {
-                font-size: 2rem;
-            }
-
-            .hero_display p {
-                font-size: 1rem;
-            }
-        }
-
-        /* 로그인/회원가입 폼 스타일 */
-        #auth-container {
-            max-width: 400px;
-            margin: 40px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        #auth-container input {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-        }
-
-        #auth-container button {
-            width: 100%;
-        }
-
-        #toggle-auth {
-            text-align: center;
-            margin-top: 10px;
-            cursor: pointer;
-            color: #ff6347;
-        }
-    </style>
-
-    <!-- Supabase JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <meta charset="UTF-8" />
+  <title>Login - Supabase</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link href="index2.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
-    <section class="hero_display">
-        <h1>Our Classes</h1>
-        <p>Choose from our wide range of fitness classes</p>
-    </section>
-
-    <section class="main_container" id="classes-container">
-        <!-- 클래스 카드 예시 (하나만 표시, 여러개 복사해도 됨) -->
-        <div class="main_box">
-            <img src="https://images.prismic.io/teclone-health/86b79d57-6217-4210-8a6b-263d44b51e05_A+woman+doing+yoga.jpg?auto=format,compress&q=75&w=500" alt="Yoga">
-            <div class="class_card">
-                <h1>Yoga & Meditation</h1>
-                <p>Find inner peace and improve flexibility with our mindful yoga sessions.</p>
-                <div class="class-card-animate">
-                    <h1>Schedule</h1>
-                    <div>
-                        <p>Mon</p>
-                        <p>Tue</p>
-                        <p>Fri</p>
-                    </div>
-                    <p>9:00AM - 12:00PM</p>
-                </div>
-                <!-- 로그인 상태에 따라 href 동적 변경 -->
-                <a class="main_btn book-btn" href="#" >Book Now</a>
-            </div>
-        </div>
-        <!-- 여기에 클래스 카드 추가 가능 -->
-    </section>
-
-    <div class="download-section">
-        <a href="IS221_A1_2025 .pdf" class="main_btn" download>Download PDF</a>
-    </div>
-
-    <!-- 로그인 / 회원가입 컨테이너 -->
-    <div id="auth-container">
-        <h2 id="auth-title">Login</h2>
-        <input type="email" id="email" placeholder="Email" />
-        <input type="password" id="password" placeholder="Password" />
-        <button id="auth-btn" class="main_btn">Login</button>
-        <div id="toggle-auth">Don't have an account? Sign up</div>
-        <div id="auth-message" style="color:red; margin-top:10px;"></div>
-        <button id="logout-btn" class="main_btn" style="display:none; margin-top:20px;">Logout</button>
-    </div>
+<h1>Login</h1>
+<input type="email" id="email" placeholder="Email" />
+<button id="loginBtn">Send Magic Link</button>
 
 <script>
-    // Supabase 설정 - 본인 프로젝트 값으로 변경하세요
-    const SUPABASE_URL = 'https://jfrxukwkeahtqacohgtj.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impmcnh1a3drZWFodHFhY29oZ3RqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgzNDM1NDcsImV4cCI6MjA2MzkxOTU0N30.zlyHwcqB-v_cK4lbh5-7MmJGt7bz6egjTLU5vecKPD4';
+  const SUPABASE_URL = 'https://jfrxukwkeahtqacohgtj.supabase.co'
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impmcnh1a3drZWFodHFhY29oZ3RqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgzNDM1NDcsImV4cCI6MjA2MzkxOTU0N30.zlyHwcqB-v_cK4lbh5-7MmJGt7bz6egjTLU5vecKPD4'
 
-    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
-    // UI 엘리먼트 참조
-    const authTitle = document.getElementById('auth-title');
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
-    const authBtn = document.getElementById('auth-btn');
-    const toggleAuth = document.getElementById('toggle-auth');
-    const authMessage = document.getElementById('auth-message');
-    const logoutBtn = document.getElementById('logout-btn');
-    const bookButtons = document.querySelectorAll('.book-btn');
-
-    let isLogin = true; // 로그인 모드 / 회원가입 모드 상태 변수
-
-    // 로그인/회원가입 토글
-    toggleAuth.addEventListener('click', () => {
-        isLogin = !isLogin;
-        if(isLogin) {
-            authTitle.textContent = 'Login';
-            authBtn.textContent = 'Login';
-            toggleAuth.textContent = "Don't have an account? Sign up";
-            authMessage.textContent = '';
-        } else {
-            authTitle.textContent = 'Sign Up';
-            authBtn.textContent = 'Sign Up';
-            toggleAuth.textContent = "Already have an account? Login";
-            authMessage.textContent = '';
-        }
-    });
-
-    // 로그인 or 회원가입 버튼 클릭
-    authBtn.addEventListener('click', async () => {
-        const email = emailInput.value.trim();
-        const password = passwordInput.value.trim();
-
-        if (!email || !password) {
-            authMessage.style.color = 'red';
-            authMessage.textContent = 'Please enter email and password.';
-            return;
-        }
-
-        authMessage.style.color = 'black';
-        authMessage.textContent = 'Processing...';
-
-        if (isLogin) {
-            // 로그인 처리
-            const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
-            if (error) {
-                authMessage.style.color = 'red';
-                authMessage.textContent = 'Login failed: ' + error.message;
-            } else {
-                authMessage.style.color = 'green';
-                authMessage.textContent = 'Login successful!';
-                showLogoutButton(true);
-                updateBookButtons(true);
-                clearForm();
-            }
-        } else {
-            // 회원가입 처리
-            const { data, error } = await supabaseClient.auth.signUp({ email, password });
-            if (error) {
-                authMessage.style.color = 'red';
-                authMessage.textContent = 'Sign up failed: ' + error.message;
-            } else {
-                authMessage.style.color = 'green';
-                authMessage.textContent = 'Sign up successful! Please check your email for confirmation.';
-                clearForm();
-            }
-        }
-    });
-
-    // 로그아웃 버튼 클릭
-    logoutBtn.addEventListener('click', async () => {
-        const { error } = await supabaseClient.auth.signOut();
-        if (error) {
-            alert('Logout failed: ' + error.message);
-        } else {
-            authMessage.style.color = 'black';
-            authMessage.textContent = 'Logged out.';
-            showLogoutButton(false);
-            updateBookButtons(false);
-        }
-    });
-
-    // 로그인 상태에 따라 UI 변경
-    async function checkAuth() {
-        const { data } = await supabaseClient.auth.getUser();
-        if (data.user) {
-            showLogoutButton(true);
-            updateBookButtons(true);
-        } else {
-            showLogoutButton(false);
-            updateBookButtons(false);
-        }
+  document.getElementById('loginBtn').addEventListener('click', async () => {
+    const email = document.getElementById('email').value
+    if (!email) {
+      alert('Email 입력해주세요')
+      return
     }
-
-    // 로그아웃 버튼 표시 토글
-    function showLogoutButton(show) {
-        logoutBtn.style.display = show ? 'block' : 'none';
-        authBtn.style.display = show ? 'none' : 'block';
-        toggleAuth.style.display = show ? 'none' : 'block';
-        emailInput.style.display = show ? 'none' : 'block';
-        passwordInput.style.display = show ? 'none' : 'block';
+    const { error } = await supabase.auth.signInWithOtp({ email })
+    if (error) {
+      alert('Error: ' + error.message)
+    } else {
+      alert('Magic link sent! 이메일 확인 후 로그인하세요.')
     }
-
-    // Book Now 버튼 링크 활성화 (로그인 시 예약 페이지로, 로그아웃 시 alert)
-    function updateBookButtons(loggedIn) {
-        bookButtons.forEach(btn => {
-            if(loggedIn) {
-                btn.href = './booking.html'; // 예약 페이지 URL로 변경
-                btn.onclick = null;
-            } else {
-                btn.href = '#';
-                btn.onclick = (e) => {
-                    e.preventDefault();
-                    alert('Please log in to book a class.');
-                };
-            }
-        });
-    }
-
-    function clearForm() {
-        emailInput.value = '';
-        passwordInput.value = '';
-    }
-
-    // 페이지 로드 시 로그인 상태 확인
-    checkAuth();
-
+  })
 </script>
+
 </body>
 </html>
