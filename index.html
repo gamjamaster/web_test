@@ -184,7 +184,7 @@
     </section>
 
     <div class="download-section">
-        <a href="IS221_A1_2025 .pdf" class="main_btn" download>Download PDF</a>
+        <a href="IS221_A1_2025.pdf" class="main_btn" download>Download PDF</a>
     </div>
 
     <!-- 로그인 / 회원가입 컨테이너 -->
@@ -202,7 +202,8 @@
     // Supabase 설정 - 본인 프로젝트 값으로 변경하세요
     const SUPABASE_URL = 'https://jfrxukwkeahtqacohgtj.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impmcnh1a3drZWFodHFhY29oZ3RqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgzNDM1NDcsImV4cCI6MjA2MzkxOTU0N30.zlyHwcqB-v_cK4lbh5-7MmJGt7bz6egjTLU5vecKPD4';
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     // UI 엘리먼트 참조
     const authTitle = document.getElementById('auth-title');
@@ -238,16 +239,19 @@
         const password = passwordInput.value.trim();
 
         if (!email || !password) {
+            authMessage.style.color = 'red';
             authMessage.textContent = 'Please enter email and password.';
             return;
         }
 
+        authMessage.style.color = 'black';
         authMessage.textContent = 'Processing...';
 
         if (isLogin) {
             // 로그인 처리
-            const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+            const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
             if (error) {
+                authMessage.style.color = 'red';
                 authMessage.textContent = 'Login failed: ' + error.message;
             } else {
                 authMessage.style.color = 'green';
@@ -258,8 +262,9 @@
             }
         } else {
             // 회원가입 처리
-            const { data, error } = await supabase.auth.signUp({ email, password });
+            const { data, error } = await supabaseClient.auth.signUp({ email, password });
             if (error) {
+                authMessage.style.color = 'red';
                 authMessage.textContent = 'Sign up failed: ' + error.message;
             } else {
                 authMessage.style.color = 'green';
@@ -271,7 +276,7 @@
 
     // 로그아웃 버튼 클릭
     logoutBtn.addEventListener('click', async () => {
-        const { error } = await supabase.auth.signOut();
+        const { error } = await supabaseClient.auth.signOut();
         if (error) {
             alert('Logout failed: ' + error.message);
         } else {
@@ -284,38 +289,39 @@
 
     // 로그인 상태에 따라 UI 변경
     async function checkAuth() {
-        const { data } = await supabase.auth.getUser();
+        const { data } = await supabaseClient.auth.getUser();
         if (data.user) {
-            authMessage.style.color = 'green';
-            authMessage.textContent = 'Logged in as: ' + data.user.email;
             showLogoutButton(true);
             updateBookButtons(true);
         } else {
-            authMessage.textContent = '';
             showLogoutButton(false);
             updateBookButtons(false);
         }
     }
 
-    // 예약 버튼 링크 업데이트
+    // 로그아웃 버튼 표시 토글
+    function showLogoutButton(show) {
+        logoutBtn.style.display = show ? 'block' : 'none';
+        authBtn.style.display = show ? 'none' : 'block';
+        toggleAuth.style.display = show ? 'none' : 'block';
+        emailInput.style.display = show ? 'none' : 'block';
+        passwordInput.style.display = show ? 'none' : 'block';
+    }
+
+    // Book Now 버튼 링크 활성화 (로그인 시 예약 페이지로, 로그아웃 시 alert)
     function updateBookButtons(loggedIn) {
         bookButtons.forEach(btn => {
             if(loggedIn) {
-                btn.href = 'booking.html'; // 로그인시 이동할 페이지 (예약 페이지 등)
-                btn.textContent = 'Book Now';
+                btn.href = './booking.html'; // 예약 페이지 URL로 변경
+                btn.onclick = null;
             } else {
                 btn.href = '#';
-                btn.textContent = 'Login to Book';
                 btn.onclick = (e) => {
                     e.preventDefault();
-                    alert('Please login first to book a class.');
+                    alert('Please log in to book a class.');
                 };
             }
         });
-    }
-
-    function showLogoutButton(show) {
-        logoutBtn.style.display = show ? 'block' : 'none';
     }
 
     function clearForm() {
@@ -323,7 +329,7 @@
         passwordInput.value = '';
     }
 
-    // 페이지 로드 시 로그인 상태 체크
+    // 페이지 로드 시 로그인 상태 확인
     checkAuth();
 
 </script>
