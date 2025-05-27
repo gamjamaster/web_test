@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Classes</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        h1, h2, p {
+            margin-bottom: 10px;
+        }
+
+        /* Hero section */
+        .hero_display {
+            background: url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1') no-repeat center center/cover;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero_display h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero_display p {
+            font-size: 1.2rem;
+        }
+
+        /* Class cards container */
+        .main_container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .main_box {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .main_box:hover {
+            transform: translateY(-10px);
+        }
+
+        .main_box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .class_card {
+            padding: 20px;
+        }
+
+        .class-card-animate h1 {
+            font-size: 1.2rem;
+            margin-top: 15px;
+        }
+
+        .class-card-animate div {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        /* Button styles */
+        .main_btn {
+            display: inline-block;
+            background-color: #ff6347;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+
+        .main_btn:hover {
+            background-color: #e5533d;
+        }
+
+        /* Centered section */
+        .download-section {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        button.main_btn {
+            border: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .hero_display h1 {
+                font-size: 2rem;
+            }
+
+            .hero_display p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero_display">
+        <h1>Our Classes</h1>
+        <p>Choose from our wide range of fitness classes</p>
+    </section>
+
+    <section class="main_container">
+        <!-- Example card - repeat this block for each class -->
+        <div class="main_box">
+            <img src="https://images.prismic.io/teclone-health/86b79d57-6217-4210-8a6b-263d44b51e05_A+woman+doing+yoga.jpg?auto=format,compress&q=75&w=500" alt="Yoga">
+            <div class="class_card">
+                <h1>Yoga & Meditation</h1>
+                <p>Find inner peace and improve flexibility with our mindful yoga sessions.</p>
+                <div class="class-card-animate">
+                    <h1>Schedule</h1>
+                    <div>
+                        <p>Mon</p>
+                        <p>Tue</p>
+                        <p>Fri</p>
+                    </div>
+                    <p>9:00AM - 12:00PM</p>
+                </div>
+                <a class="main_btn" href="login.html">Book Now</a>
+            </div>
+        </div>
+
+        <!-- Copy and paste this block for other classes with appropriate content/images -->
+        <!-- HIIT, Strength Training, Cardio Dance, Core & Flexibility, Circuit Training -->
+        <!-- Add other class cards here similarly -->
+
+    </section>
+
+    <div class="download-section">
+        <button class="main_btn" onclick="downloadPDF()">Download PDF</button>
+    </div>
+
+    <script>
+        function downloadPDF() {
+            alert('PDF download triggered. Add actual implementation.');
+        }
+    </script>
+
+</body>
+</html>
